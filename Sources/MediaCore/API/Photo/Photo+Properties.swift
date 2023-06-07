@@ -44,6 +44,8 @@ extension Photo {
         public let gps: GPS
         /// Tagged Image File Format data
         public let tiff: TIFF
+        /// International Press Telecommunications Council data
+        public let iptc: IPTC
 
         /// Keys for an image that uses Exchangeable Image File Format (EXIF).
         ///
@@ -192,6 +194,13 @@ extension Photo {
             public let xResolution: Int?
             /// The number of pixels per resolution unit in the image height direction.
             public let yResolution: Int?
+            public let description: String?
+        }
+        
+        /// Keys for an image that uses International Press Telecommunications Council (IPTC) data.
+        ///
+        public struct IPTC {
+            public let captionAbstract: String?
         }
     }
 }
@@ -278,6 +287,11 @@ extension Photo.Properties {
             yResolution: tiffDictionary?[kCGImagePropertyTIFFYResolution as String] as? Int,
             description: tiffDictionary?[kCGImagePropertyTIFFImageDescription as String] as? String
         )
+        
+        let iptcDictionary = dictionary["{IPTC}"] as? [String: Any]
+        let iptc = IPTC(
+            captionAbstract: iptcDictionary?[kCGImagePropertyIPTCCaptionAbstract as String] as? String
+        )
 
         var properties = Self(
             dpiWidth: dictionary[kCGImagePropertyDPIWidth as String] as? Int,
@@ -288,7 +302,8 @@ extension Photo.Properties {
             profileName: dictionary[kCGImagePropertyProfileName as String] as? String,
             exif: exif,
             gps: gps,
-            tiff: tiff
+            tiff: tiff,
+            iptc: iptc
         )
 
         if #available(iOS 11, macOS 10.15, tvOS 11, *) {
