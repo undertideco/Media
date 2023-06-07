@@ -275,7 +275,8 @@ extension Photo.Properties {
             tileLength: tiffDictionary?[kCGImagePropertyTIFFTileLength as String] as? Int,
             tileWidth: tiffDictionary?[kCGImagePropertyTIFFTileWidth as String] as? Int,
             xResolution: tiffDictionary?[kCGImagePropertyTIFFXResolution as String] as? Int,
-            yResolution: tiffDictionary?[kCGImagePropertyTIFFYResolution as String] as? Int
+            yResolution: tiffDictionary?[kCGImagePropertyTIFFYResolution as String] as? Int,
+            description: tiffDictionary?[kCGImagePropertyTIFFImageDescription as String] as? String
         )
 
         var properties = Self(
