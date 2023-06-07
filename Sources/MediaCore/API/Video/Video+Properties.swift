@@ -22,6 +22,8 @@ extension Video {
         public private(set) var software: String?
         /// Creation date of the `Video`
         public private(set) var creationDate: Date?
+        /// Description of the `Video`
+        public private(set) var description: String?
     }
 }
 
@@ -39,6 +41,8 @@ extension Video.Properties {
                 software = item.stringValue
             case .commonKeyCreationDate?:
                 creationDate = item.dateValue
+            case .commonKeyDescription?:
+                description = item.stringValue
             default: ()
             }
         }
