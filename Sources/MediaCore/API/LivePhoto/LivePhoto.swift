@@ -70,7 +70,7 @@ extension LivePhoto: Hashable {
     }
 }
 
-#if !os(macOS) && !targetEnvironment(macCatalyst)
+#if !os(macOS)
 public extension LivePhoto {
     /// Fetches a display representation of the receiver
     ///
