@@ -73,7 +73,7 @@ struct CameraView: View {
     }
 }
 
-@available(iOS 13, *)
+@available(iOS 13, macCatalyst 14, *)
 private extension CameraView {
     func toolbar() -> some View {
         HStack {
@@ -107,7 +107,7 @@ private extension CameraView {
     }
 }
 
-@available(iOS 13, *)
+@available(iOS 13, macCatalyst 14, *)
 private extension CameraView {
     func onDisappear() {
         reset()
@@ -154,7 +154,7 @@ private extension CameraView {
     }
 }
 
-@available(iOS 13, *)
+@available(iOS 13, macCatalyst 14, *)
 private extension CameraView {
     func dismiss() {
         DispatchQueue.global(qos: .userInitiated).async {
