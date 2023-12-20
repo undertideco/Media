@@ -9,7 +9,7 @@ import AVFoundation
 
 @available(iOS 10, *)
 @available(macCatalyst 14, *)
-@available(tvOS, unavailable)
+@available(tvOS 17.0, *)
 final class VideoRecorder: NSObject {
     private let videoOutput: AVCaptureMovieFileOutput
     private var completion: ResultURLCompletion?
